@@ -20,7 +20,7 @@ require('./connection');
 const server = require('http').createServer(app);
 const io = require('socket.io')(server, {
   cors: {
-    origin: 'mern-chat-frontend-delta.vercel.app',
+    origin: '*',
     methods: ['GET', 'POST']
   }
 });
