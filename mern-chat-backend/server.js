@@ -9,7 +9,7 @@ const cors = require('cors');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors({
-  origin: ['https://mern-chat-frontend-delta.vercel.app/'],
+  origin: ['https://mern-chat-frontend-delta.vercel.app'],
   methods: ['POST', 'GET'],
   credentials: true
 }));
@@ -20,7 +20,7 @@ require('./connection');
 const server = require('http').createServer(app);
 const io = require('socket.io')(server, {
   cors: {
-    origin: 'https://mern-chat-frontend-delta.vercel.app/',
+    origin: 'https://mern-chat-frontend-delta.vercel.app',
     methods: ['GET', 'POST']
   }
 });
