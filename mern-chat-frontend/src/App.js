@@ -18,6 +18,10 @@ function App() {
     const [privateMemberMsg, setPrivateMemberMsg] = useState({});
     const [newMessages, setNewMessages] = useState({});
     const user = useSelector((state) => state.user);
+
+    // Update the apiUrl to your Vercel deployment URL
+    const apiUrl = 'https://mern-chat-omega.vercel.app';
+
     return (
         <AppContext.Provider value={{ socket, currentRoom, setCurrentRoom, members, setMembers, messages, setMessages, privateMemberMsg, setPrivateMemberMsg, rooms, setRooms, newMessages, setNewMessages }}>
             <BrowserRouter>
@@ -30,7 +34,8 @@ function App() {
                             <Route path="/signup" element={<Signup />} />
                         </>
                     )}
-                    <Route path="/chat" element={<Chat />} />
+                    {/* Update the API requests to use the apiUrl */}
+                    <Route path="/chat" element={<Chat apiUrl={apiUrl} />} />
                 </Routes>
             </BrowserRouter>
         </AppContext.Provider>
