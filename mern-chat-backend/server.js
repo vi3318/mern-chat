@@ -8,19 +8,16 @@ const cors = require('cors');
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-app.use(cors(
-  {
-    origin: ['https://mern-chat-frontend-delta.vercel.app'],
-    methods: ['POST', 'GET'],
-    credentials: true
-  }
-));
+app.use(cors({
+  origin: ['https://mern-chat-frontend-delta.vercel.app'],
+  methods: ['POST', 'GET'],
+  credentials: true
+}));
 
 app.use('/users', userRoutes);
 require('./connection');
 
 const server = require('http').createServer(app);
-const PORT = process.env.PORT || 5001; // Use dynamic port or fallback to 5001
 const io = require('socket.io')(server, {
   cors: {
     origin: 'https://mern-chat-frontend-delta.vercel.app',
@@ -94,6 +91,6 @@ app.get('/rooms', (req, res)=> {
   res.json(rooms)
 })
 
-server.listen(PORT, ()=> {
-  console.log('listening to port', PORT);
+server.listen(process.env.PORT || 5001, ()=> {
+  console.log('Server is running');
 });
