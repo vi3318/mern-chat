@@ -10,7 +10,11 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(cors(
   {
+<<<<<<< HEAD
     origin: ['https://mern-chat-frontend-delta.vercel.app'],
+=======
+    origin: ['mern-chat-frontend-delta.vercel.app'],
+>>>>>>> 5babe8f33d9925df3dd5124d5c2862f644429229
     methods: ['POST', 'GET'],
     credentials: true
   }
