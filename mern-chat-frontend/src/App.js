@@ -20,7 +20,7 @@ function App() {
     const user = useSelector((state) => state.user);
 
     // Update the apiUrl to your Vercel deployment URL
-    const apiUrl = 'https://mern-chat-omega.vercel.app';
+    const apiUrl = 'mern-chat-omega.vercel.app';
 
     return (
         <AppContext.Provider value={{ socket, currentRoom, setCurrentRoom, members, setMembers, messages, setMessages, privateMemberMsg, setPrivateMemberMsg, rooms, setRooms, newMessages, setNewMessages }}>
